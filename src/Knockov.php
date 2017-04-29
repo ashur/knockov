@@ -18,6 +18,16 @@ class Knockov
 	 */
 	public function __construct( $depth )
 	{
+		if( !is_int( $depth ) )
+		{
+			$depthString = var_export( $depth, true );
+			throw new \InvalidArgumentException( "Invalid depth '{$depthString}'" );
+		}
+		if( $depth <= 0 )
+		{
+			throw new \InvalidArgumentException( "Invalid depth '{$depth}'" );
+		}
+
 		$this->depth = $depth;
 	}
 

@@ -19,11 +19,11 @@ class KnockovTest extends TestCase
 			[ true ],
 			[ [] ],
 			[ (object)[] ],
+			[ -1 ]
 		];
 	}
 
 	/**
-	 * @param		mixed	$depth
 	 * @dataProvider		invalidDepthProvider
 	 * @expectedException	InvalidArgumentException
 	 */
@@ -41,26 +41,4 @@ class KnockovTest extends TestCase
 		$knockov = new Knockov\Knockov( $depth );
 		$this->assertEquals( $depth, $knockov->getDepth() );
 	}
-
-	// /**
-	//  * @param	string	$string
-	//  * @dataProvider	validStringProvider
-	//  */
-	// public function testRegisterString( $string )
-	// {
-	// 	$knockov = new Knockov\Knockov();
-	// 	$knockov->registerString( $string );
-	// }
-	//
-	// /**
-	//  * @return	array
-	//  */
-	// public function validStringProvider()
-	// {
-	// 	return [
-	// 		[ 'I am going' ],
-	// 		[ 'we are going' ],
-	// 		[ 'you are going' ],
-	// 	];
-	// }
 }
