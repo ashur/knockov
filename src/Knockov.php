@@ -38,4 +38,17 @@ class Knockov
 	{
 		return $this->depth;
 	}
+
+	/**
+	 * @param	string	$string
+	 * @return	void
+	 */
+	public function registerString( $string )
+	{
+		if( !is_string( $string ) )
+		{
+			$stringString = var_export( $string, true );
+			throw new \InvalidArgumentException( "Invalid string '{$stringString}'" );
+		}
+	}
 }

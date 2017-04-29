@@ -24,8 +24,24 @@ class KnockovTest extends TestCase
 	}
 
 	/**
-	 * @dataProvider		invalidDepthProvider
-	 * @expectedException	InvalidArgumentException
+	 * Values that can't be registered as strings
+	 *
+	 * @return	string
+	 */
+	public function invalidStringProvider()
+	{
+		return [
+			[ false ],
+			[ true ],
+			[ [] ],
+			[ (object)[] ],
+			[ -1 ]
+		];
+	}
+
+	/**
+	 * @dataProvider invalidDepthProvider
+	 * @expectedException InvalidArgumentException
 	 */
 	public function testSetInvalidDepth( $depth )
 	{
@@ -40,5 +56,15 @@ class KnockovTest extends TestCase
 		$depth = 1;
 		$knockov = new Knockov\Knockov( $depth );
 		$this->assertEquals( $depth, $knockov->getDepth() );
+	}
+
+	/**
+	 * @dataProvider invalidStringProvider
+	 * @expectedException InvalidArgumentException
+	 */
+	public function testRegisterInvalidString( $string )
+	{
+		$knockov = new Knockov\Knockov( 1 );
+		$knockov->registerString( $string );
 	}
 }
