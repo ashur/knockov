@@ -50,6 +50,16 @@ class Link
 	}
 
 	/**
+	 * Reset contents of internal links array
+	 *
+	 * @return	void
+	 */
+	public function clearLinks()
+	{
+		$this->links = [];
+	}
+
+	/**
 	 * Return array of Knockov\Link objects originating from this Link
 	 *
 	 * @return	array

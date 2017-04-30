@@ -159,4 +159,19 @@ class LinkTest extends TestCase
 			$this->assertEquals( 'hello', $link->getNormalizedValue() );
 		}
 	}
+
+	/**
+	 * Reset contents of internal links array
+	 */
+	public function testClearLinks()
+	{
+		$helloLink = new Knockov\Link( 'hello' );
+		$worldLink = new Knockov\Link( 'world' );
+
+		$helloLink->addLink( $worldLink );
+		$this->assertEquals( $worldLink, $helloLink->getNextLink() );
+
+		$helloLink->clearLinks();
+		$this->assertEquals( false, $helloLink->getNextLink() );
+	}
 }
