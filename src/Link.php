@@ -23,6 +23,11 @@ class Link
 	protected $startWord=false;
 
 	/**
+	 * @var	boolean
+	 */
+	protected $stopWord=false;
+
+	/**
 	 * @param	string	$value
 	 * @return	void
 	 */
@@ -133,5 +138,19 @@ class Link
 		}
 
 		$this->startWord = ($startWord == true);
+	}
+
+	/**
+	 * @param	boolean	$stopWord
+	 * @return	boolean
+	 */
+	public function isStopWord( $stopWord=null )
+	{
+		if( $stopWord == null )
+		{
+			return $this->stopWord;
+		}
+
+		$this->stopWord = ($stopWord == true);
 	}
 }

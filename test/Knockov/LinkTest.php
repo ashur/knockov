@@ -186,4 +186,17 @@ class LinkTest extends TestCase
 		$link->isStartWord( true );
 		$this->assertTrue( $link->isStartWord() );
 	}
+
+
+	/**
+	 * By default, a Link should not be a stop word
+	 */
+	public function testIsStopWord()
+	{
+		$link = new Knockov\Link( 'foo' );
+		$this->assertFalse( $link->isStopWord() );
+
+		$link->isStopWord( true );
+		$this->assertTrue( $link->isStopWord() );
+	}
 }
