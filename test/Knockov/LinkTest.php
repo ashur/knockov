@@ -174,4 +174,16 @@ class LinkTest extends TestCase
 		$helloLink->clearLinks();
 		$this->assertEquals( false, $helloLink->getNextLink() );
 	}
+
+	/**
+	 * By default, a Link should not be a start word
+	 */
+	public function testIsStartWord()
+	{
+		$link = new Knockov\Link( 'foo' );
+		$this->assertFalse( $link->isStartWord() );
+
+		$link->isStartWord( true );
+		$this->assertTrue( $link->isStartWord() );
+	}
 }

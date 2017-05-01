@@ -18,6 +18,11 @@ class Link
 	protected $value;
 
 	/**
+	 * @var	boolean
+	 */
+	protected $startWord=false;
+
+	/**
 	 * @param	string	$value
 	 * @return	void
 	 */
@@ -114,5 +119,19 @@ class Link
 	public function getValue()
 	{
 		return $this->value;
+	}
+
+	/**
+	 * @param	boolean	$startWord
+	 * @return	boolean
+	 */
+	public function isStartWord( $startWord=null )
+	{
+		if( $startWord == null )
+		{
+			return $this->startWord;
+		}
+
+		$this->startWord = ($startWord == true);
 	}
 }
